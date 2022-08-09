@@ -24,5 +24,28 @@ Feature: Main Page Website
   Scenario: Verify 'What you will learn' button and fundamentals page
     Given  i am on the main page website
     When   i click the 'What you`ll learn' button
+    Then   i am taken to 'Learn The Fundamentals' page
     And    i click the 'Read More' button
     Then   i am taken to the 'Fundamentals' page
+
+  Scenario: Verify 'Question' button and page
+     Given i am on the main page website
+     When  i click on the 'Questions' button
+     Then  i am taken to the 'Frequently Asked Questions' page
+     And   i click on the all four questions accordion buttons
+
+  Scenario: Verify 'Instructors' button and page
+     Given i am on the main page website
+     When  i click on the 'Instructors' button
+     Then  i am taken to the to the 'Our Instructor' page
+
+  Scenario: Verify social media links for 'John Doe' instructor
+     Given i am on the main page website
+     When  i click the 'Twitter' button
+     Then  i am taken to the 'Twitter' page
+     When  i click the 'Facebook' button
+     Then  i am taken to the 'Facebook' page
+     When  i click the 'Linkedin' button
+     Then  i am taken to the 'Linkedin' page
+     When  i click the 'Instagram' button
+     Then  i am taken to the 'Instagram' page

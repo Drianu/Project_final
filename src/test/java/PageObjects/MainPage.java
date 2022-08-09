@@ -23,11 +23,35 @@ public class MainPage {
     private WebElement startEnrollmentButton;
 
     @FindBy(xpath = "//*[@id=\"navmenu\"]/ul/li[1]/a")
-    private  WebElement learnButton;
+    private WebElement learnButton;
 
-    @FindBy(xpath = "//*[@id=\"learn-fundamentals\"]/div/div/div[2]/a")
+    @FindBy(xpath = "//*[@id=\"learn-fundamentals\"]/div/div/div[2]/a/i")
     private WebElement readMoreButton;
 
+    @FindBy(xpath = "//*[@id=\"navmenu\"]/ul/li[2]/a")
+    private WebElement questionsButton;
+
+    @FindBy(xpath = "//*[@id=\"questions\"]/div[1]/h3/button")
+    private WebElement accordionButton1;
+    @FindBy(xpath = "//*[@id=\"questions\"]/div[2]/h3/button")
+    private WebElement accordionButton2;
+    @FindBy(xpath = "//*[@id=\"questions\"]/div[3]/h3/button")
+    private WebElement accordionButton3;
+    @FindBy(xpath = "//*[@id=\"questions\"]/div[4]/h3/button")
+    private WebElement accordionButton4;
+    @FindBy(xpath = "//*[@id=\"questions\"]/div[5]/h3/button")
+    private WebElement accordionButton5;
+    @FindBy(xpath = "//*[@id=\"navmenu\"]/ul/li[3]/a")
+    private WebElement instructorsButton;
+
+    @FindBy (xpath = "//*[@id=\"instructors\"]/div/div/div[1]/div/div/a[1]/i")
+    private WebElement johnDoeTwitterButton;
+    @FindBy (xpath = "//*[@id=\"instructors\"]/div/div/div[1]/div/div/a[2]/i")
+    private WebElement johnDoeFacebookButton;
+    @FindBy (xpath = "//*[@id=\"instructors\"]/div/div/div[1]/div/div/a[3]/i")
+    private WebElement johnDoeLinkedinButton;
+    @FindBy (xpath = "//*[@id=\"instructors\"]/div/div/div[1]/div/div/a[4]/i")
+    private WebElement johnDoeInstagramButton;
     public MainPage (WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
@@ -43,16 +67,23 @@ public class MainPage {
         this.learnButton.click();
     }
     public void clickOnReadMoreButton() {
-        this.learnButton.click();
+        this.readMoreButton.click();
     }
-    public static void waitForTheElementToLoad (int timeUnit) {
-        try {
-            TimeUnit.SECONDS.sleep(timeUnit);
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+
+    public void clickOnQuestionsButton() { this.questionsButton.click();}
+    public void clickOnAccordionButton1(){this.accordionButton1.click();}
+    public void clickOnAccordionButton2(){this.accordionButton2.click();}
+    public void clickOnAccordionButton3(){this.accordionButton3.click();}
+    public void clickOnAccordionButton4(){this.accordionButton4.click();}
+    public void clickOnAccordionButton5(){this.accordionButton5.click();}
+    public void clickOnInstructorsButton(){this.instructorsButton.click();}
+    public void clickOnJohnDoeTwitterButton(){this.johnDoeTwitterButton.click();}
+    public void clickOnJohnDoeFacebookButton(){this.johnDoeFacebookButton.click();}
+    public void clickOnJohnDoeLinkedinButton(){this.johnDoeLinkedinButton.click();}
+    public void clickOnJohnDoeInstagramButton(){this.johnDoeInstagramButton.click();}
+
+
+
 
 
     }
