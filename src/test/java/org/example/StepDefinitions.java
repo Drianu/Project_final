@@ -191,7 +191,7 @@ public class StepDefinitions {
         mainPage.inputOnConfirmPasswordTextBox(string);
     }
 
-    @When("i click the next button")
+    @When("i click the next button for personal information page")
     public void i_click_the_next_button_personal_information_page(){
         mainPage.clickOnPersonalInformationPageNextButton();
     }
@@ -231,13 +231,13 @@ public class StepDefinitions {
     public void i_input_the_postcode(String string){
         mainPage.inputOnPostCodeTextBox(string);
     }
-    @And("i click the next button")
+    @When("i click the next button on contact information page")
     public void i_click_the_next_button_contact_information_page(){
         mainPage.clickOnContactInformationPageNextButton();
     }
     @Then("i am taken to the 'Course options' page")
-    public void i_am_taken_to_the_course_options_page(){
-        Assert.assertTrue(driver.getPageSource().contains("Course options"));
+    public void i_am_taken_to_the_course_options_page(String string){
+        Assert.assertTrue(driver.getPageSource().contains(string));
         driver.quit();
     }
 

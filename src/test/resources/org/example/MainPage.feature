@@ -57,7 +57,7 @@ Feature: Main Page Website
     And   i input the username 'Drianu'
     And   i input the password 'testcase'
     And   i input the confirm password 'testcase'
-    When  i click the next button
+    When  i click the next button for personal information page
     Then  i am taken to the 'Contact information' page
 
   Scenario: Verify Sign up page - contact information section
@@ -67,5 +67,5 @@ Feature: Main Page Website
     And   i input the country 'Romania'
     And   i input the city 'Brasov'
     And   i input the postcode '500365'
-    When  i click the next button
+    When  i click the next button on contact information page
     Then  i am taken to the 'Course options' page
