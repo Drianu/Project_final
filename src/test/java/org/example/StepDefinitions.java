@@ -32,8 +32,8 @@ public class StepDefinitions {
         driver.get("file:///C:/Users/40730/Desktop/Testing-Env-master/index.html");
     }
 
-    @When("i input the email {string}")
-    public void i_input_the_email(String string) {
+    @When("i input for newsletter the email {string}")
+    public void i_input_the_email_newsletter(String string) {
         mainPage.inputEmailField(string);
     }
 
@@ -125,13 +125,15 @@ public class StepDefinitions {
 
     @When("i click the 'Twitter' button")
     public void i_click_the_twitter_button() {
-    WebElement scrollToInstructorspage = driver.findElement(By.xpath("//*[@id=\"instructors\"]/div/h2"));
-    Utils.scrollToElement(driver, scrollToInstructorspage);
+    //WebElement scrollToInstructorspage = driver.findElement(By.xpath("//*[@id=\"instructors\"]/div/h2"));
+    Utils.scrollToElement(driver, mainPage.scrollToInstructorsPage());
     mainPage.clickOnJohnDoeTwitterButton();
+
     }
 
     @Then("i am taken to the 'Twitter' page")
     public void i_am_taken_to_the_twitter_page() {
+        Utils.waitForElementToLoad(1);
         Assert.assertTrue(driver.getTitle().toLowerCase().startsWith("twitter"));
         driver.navigate().back();
     }
@@ -162,6 +164,80 @@ public class StepDefinitions {
     @Then("i am taken to the 'Instagram' page")
     public void i_am_taken_to_the_instagram_page(){
         Assert.assertTrue(driver.getTitle().toLowerCase().startsWith("instagram"));
+        driver.quit();
+    }
+    @Given("i am on the personal information page")
+    public void i_am_on_the_personal_information_page() {
+        driver.get("file:///C:/Users/40730/Desktop/Testing-Env-master/routes/enrollment.html");
+    }
+    @And("i input the first name {string}")
+    public void i_input_the_first_name(String string) {
+        mainPage.inputOnFirstNameTextBox(string);
+    }
+    @And("i input the last name {string}")
+    public void i_input_the_last_name (String string) {
+        mainPage.inputOnLastNameTextBox(string);
+    }
+    @And("i input the username {string}")
+    public void i_input_the_username (String string) {
+        mainPage.inputOnUsernameTextBox(string);
+    }
+    @And("i input the password {string}")
+    public void i_input_the_password (String string) {
+        mainPage.inputOnPasswordTextBox(string);
+    }
+    @And("i input the confirm password {string}")
+    public void i_input_the_confirm_password (String string) {
+        mainPage.inputOnConfirmPasswordTextBox(string);
+    }
+
+    @When("i click the next button")
+    public void i_click_the_next_button_personal_information_page(){
+        mainPage.clickOnPersonalInformationPageNextButton();
+    }
+    @Then("i am taken to the 'Contact information' page")
+    public void i_am_taken_to_the_contact_information_page(){
+        Assert.assertTrue(driver.getPageSource().contains("Contact information"));
+        driver.quit();
+    }
+    @Given("i am on the 'Contact information' page")
+    public void i_am_on_the_contact_information_page(){
+        driver.get("file:///C:/Users/40730/Desktop/Testing-Env-master/routes/enrollment.html");
+        mainPage.inputOnFirstNameTextBox("Adrian");
+        mainPage.inputOnLastNameTextBox("Leonte");
+        mainPage.inputOnUsernameTextBox("Drianu");
+        mainPage.inputOnPasswordTextBox("testcase");
+        mainPage.inputOnConfirmPasswordTextBox("testcase");
+        mainPage.clickOnPersonalInformationPageNextButton();
+    }
+    @And("i input the email {string}")
+    public void i_input_the_email(String string){
+        mainPage.inputOnContactInformationEmailTextBox(string);
+    }
+
+    @And("i input the phone number {string}")
+    public void i_input_the_phone_number(String string){
+        mainPage.inputOnPhoneTextBox(string);
+    }
+    @And("i input the country {string}")
+    public void i_input_the_country(String string){
+        mainPage.inputkOnCountryTextBox(string);
+    }
+    @And("i input the city {string}")
+    public void i_input_the_city(String string){
+        mainPage.inputOnCityTextBox(string);
+    }
+    @And("i input the postcode {string}")
+    public void i_input_the_postcode(String string){
+        mainPage.inputOnPostCodeTextBox(string);
+    }
+    @And("i click the next button")
+    public void i_click_the_next_button_contact_information_page(){
+        mainPage.clickOnContactInformationPageNextButton();
+    }
+    @Then("i am taken to the 'Course options' page")
+    public void i_am_taken_to_the_course_options_page(){
+        Assert.assertTrue(driver.getPageSource().contains("Course options"));
         driver.quit();
     }
 
