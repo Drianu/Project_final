@@ -21,6 +21,15 @@ Feature: Main Page Website
     When  i click the 'Start the Enrollment' button
     Then  i am taken to the 'Sign up' page
 
+  Scenario: Verify "Read More" buttons for "Virtual", "Hyrid" and "In person" text boxes
+    Given i am on the main page website
+    When  i click on 'Read More' button for 'Virtual' text box
+    Then  i am taken to the 'Virtual' page
+    When  i click on 'Read More' button for 'Hybrid' text box
+    Then  i am taken to the 'Hybrid' page
+    When  i click on 'Read More' button for 'In Person'
+    Then  i am taken to the 'In Person' page
+
   Scenario: Verify 'What you will learn' button and fundamentals page
     Given  i am on the main page website
     When   i click the 'What you`ll learn' button
@@ -29,43 +38,28 @@ Feature: Main Page Website
     Then   i am taken to the 'Fundamentals' page
 
   Scenario: Verify 'Question' button and page
-     Given i am on the main page website
-     When  i click on the 'Questions' button
-     Then  i am taken to the 'Frequently Asked Questions' page
-     And   i click on the all four questions accordion buttons
+    Given i am on the main page website
+    When  i click on the 'Questions' button
+    Then  i am taken to the 'Frequently Asked Questions' page
+    And   i click on the all four questions accordion buttons
 
   Scenario: Verify 'Instructors' button and page
-     Given i am on the main page website
-     When  i click on the 'Instructors' button
-     Then  i am taken to the to the 'Our Instructor' page
+    Given i am on the main page website
+    When  i click on the 'Instructors' button
+    Then  i am taken to the to the 'Our Instructor' page
 
   Scenario: Verify social media links for 'John Doe' instructor
-     Given i am on the main page website
-     When  i click the 'Twitter' button
-     Then  i am taken to the 'Twitter' page
-     When  i click the 'Facebook' button
-     Then  i am taken to the 'Facebook' page
-     When  i click the 'Linkedin' button
-     Then  i am taken to the 'Linkedin' page
-     When  i click the 'Instagram' button
-     Then  i am taken to the 'Instagram' page
+    Given i am on the main page website
+    When  i click the 'Twitter' button for John Doe
+    Then  i am taken to the 'Twitter' page
+    When  i click the 'Facebook' button for John Doe
+    Then  i am taken to the 'Facebook' page
+    When  i click the 'Linkedin' button for John Doe
+    Then  i am taken to the 'Linkedin' page
+    When  i click the 'Instagram' button for John Doe
+    Then  i am taken to the 'Instagram' page
 
-  Scenario: Verify Sign up page - personal information section
-    Given i am on the personal information page
-    And   i input the first name 'Adrian'
-    And   i input the last name 'Leonte'
-    And   i input the username 'Drianu'
-    And   i input the password 'testcase'
-    And   i input the confirm password 'testcase'
-    When  i click the next button for personal information page
-    Then  i am taken to the 'Contact information' page
 
-  Scenario: Verify Sign up page - contact information section
-    Given i am on the 'Contact information' page
-    And   i input the email 'testcase@testcase.com'
-    And   i input the phone number '0743560452'
-    And   i input the country 'Romania'
-    And   i input the city 'Brasov'
-    And   i input the postcode '500365'
-    When  i click the next button on contact information page
-    Then  i am taken to the 'Course options' page
+
+
+
