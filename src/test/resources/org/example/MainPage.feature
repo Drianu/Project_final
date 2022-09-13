@@ -21,7 +21,7 @@ Feature: Main Page Website
     When  i click the 'Start the Enrollment' button
     Then  i am taken to the 'Sign up' page
 
-  Scenario: Verify "Read More" buttons for "Virtual", "Hyrid" and "In person" text boxes
+  Scenario: Verify "Read More" buttons for "Virtual", "Hybrid" and "In person" text boxes
     Given i am on the main page website
     When  i click on 'Read More' button for 'Virtual' text box
     Then  i am taken to the 'Virtual' page
@@ -37,18 +37,18 @@ Feature: Main Page Website
     And    i click the 'Read More' button
     Then   i am taken to the 'Fundamentals' page
 
-  Scenario: Verify 'Question' button and page
+  Scenario: Verify 'Question' button and page section
     Given i am on the main page website
     When  i click on the 'Questions' button
     Then  i am taken to the 'Frequently Asked Questions' page
-    And   i click on the all four questions accordion buttons
+    And   i click on the all five questions accordion buttons
 
   Scenario: Verify 'Instructors' button and page
     Given i am on the main page website
     When  i click on the 'Instructors' button
     Then  i am taken to the to the 'Our Instructor' page
 
-  Scenario: Verify social media links for 'John Doe' instructor
+  Scenario: Verify social media links for John Doe instructor
     Given i am on the main page website
     When  i click the 'Twitter' button for John Doe
     Then  i am taken to the 'Twitter' page
@@ -60,6 +60,41 @@ Feature: Main Page Website
     Then  i am taken to the 'Instagram' page
 
 
+  Scenario: Verify social media links for Jane Doe instructor
+    Given i am on the main page website
+    When  i click the 'Twitter' button for Jane Doe
+    Then  i am taken to the 'Twitter' page
+    When  i click the 'Facebook' button for Jane Doe
+    Then  i am taken to the 'Facebook' page
+    When  i click the 'Linkedin' button for Jane Doe
+    Then  i am taken to the 'Linkedin' page
+    When  i click the 'Instagram' button for Jane Doe
+    Then  i am taken to the 'Instagram' page
 
+  Scenario: Verify social media links for 'Steve Smith' instructor
+    Given i am on the main page website
+    When  i click the 'Twitter' button for Steve Smith
+    Then  i am taken to the 'Twitter' page
+    When  i click the 'Facebook' button for Steve Smith
+    Then  i am taken to the 'Facebook' page
+    When  i click the 'Linkedin' button for Steve Smith
+    Then  i am taken to the 'Linkedin' page
+    When  i click the 'Instagram' button for Steve Smith
+    Then  i am taken to the 'Instagram' page
 
+  Scenario: Verify social media links for 'Sara Smith' instructor
+    Given i am on the main page website
+    When  i click the 'Twitter' button for Sara Smith
+    Then  i am taken to the 'Twitter' page
+    When  i click the 'Facebook' button for Sara Smith
+    Then  i am taken to the 'Facebook' page
+    When  i click the 'Linkedin' button for Sara Smith
+    Then  i am taken to the 'Linkedin' page
+    When  i click the 'Instagram' button for Sara Smith
+    Then  i am taken to the 'Instagram' page
+
+  Scenario: Verify Learn Selenium button and page (Test fails - bug)
+    Given i am on the main page website
+    When  i click 'Read More' button for Learn Selenium page
+    Then  i am taken to the page 'Learn Selenium'
 

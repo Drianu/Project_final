@@ -2,7 +2,6 @@ package PageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -47,8 +46,6 @@ public class EnrollmentPage {
     private WebElement cardNumberTextBox;
     @FindBy (xpath = "/html/body/div/div/section/div/form/div[4]/div[3]/div/div[2]/input")
     private WebElement cvcTextBox;
-    @FindBy (xpath = "//*[@id=\"month\"]")
-    private WebElement expiryDateMonthTextBox;
     @FindBy (xpath = "//*[@id=\"month\"]/option[13]")
     private WebElement selectExpiryDateMonthDecember;
     @FindBy (xpath = "//*[@id=\"year\"]")
@@ -57,8 +54,10 @@ public class EnrollmentPage {
     private WebElement selectExpiryDateYear2033;
     @FindBy (xpath = "/html/body/div/div/section/div/form/div[4]/div[4]/button[2]")
     private WebElement paymentInformationNextButton;
-    @FindBy (xpath = "/html/body/div/div/section/div/form/div[5]/a")
-    private WebElement returnTohomepageEnrollmentBUtton;
+    @FindBy (xpath = "/html/body/div/div/section/div/form/div[4]/div[4]/button[1]")
+    private WebElement paymentInformationPrevButton;
+    @FindBy (xpath = "/html/body/div/div/section/div/form/div[3]/div[1]/label")
+    private WebElement courseOptionsFormLabelManualSoftwareCertificate;
 
     public EnrollmentPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -72,11 +71,11 @@ public class EnrollmentPage {
     public void clickOnPersonalInformationPageNextButton(){this.personalInformationPageNextButton.click();}
     public void inputOnContactInformationEmailTextBox(String emailcontact){this.contactInformationEmailTextBox.sendKeys(emailcontact);}
     public void inputOnPhoneTextBox(String phone){this.phoneTextBox.sendKeys(phone);}
-    public void inputkOnCountryTextBox(String country){this.countryTextBox.sendKeys(country);}
+    public void inputOnCountryTextBox(String country){this.countryTextBox.sendKeys(country);}
     public void inputOnCityTextBox(String city){this.cityTextBox.sendKeys(city);}
     public void inputOnPostCodeTextBox(String postCode){this.postCodeTextBox.sendKeys(postCode);}
     public void clickOnContactInformationPageNextButton(){this.contactInnformationNextButton.click();}
-    public void clickOnCourseOptionsManuelTesterButton(){this.courseOptionsManuelTesterButton.click();}
+    public void clickOnCourseOptionsManualTesterButton(){this.courseOptionsManuelTesterButton.click();}
     public void clickOnCoursepOptionsAutomationTesterButton(){this.coursepOptionsAutomationTesterButton.click();}
     public void clickOnCourseOptionsAutomationAndManualTesterButton(){this.courseOptionsAutomationAndManualTesterButton.click();}
     public void clickOnCourseOptionsSecurityTesterButton(){this.courseOptionsSecurityTesterButton.click();}
@@ -84,13 +83,11 @@ public class EnrollmentPage {
     public void inputOnCardHolderNameTextBox(String cardHolderName){this.cardHolderNameTextBox.sendKeys(cardHolderName);}
     public void inputOnCardNumberTextBox(String cardNumber){this.cardNumberTextBox.sendKeys(cardNumber);}
     public void inputOnCvcTextBox(String cvc){this.cvcTextBox.sendKeys(cvc);}
-    public void clickOnExpiryDateMonthTextBox(){this.expiryDateMonthTextBox.click();}
     public void clickOnSelectExpiryDateMonthDecember(){this.selectExpiryDateMonthDecember.click();}
     public void clickOnExpiryDateYearTextBox(){this.expiryDateYearTextBox.click();}
     public void clickOnSelectExpiryDateYear2033(){this.selectExpiryDateYear2033.click();}
     public void clickOnPaymentInformationNextButton(){this.paymentInformationNextButton.click();}
-    public void clickOnReturnTohomepageEnrollmentBUtton(){this.returnTohomepageEnrollmentBUtton.click();}
-
+    public void clickOnPaymentInformationPrevButton(){this.paymentInformationPrevButton.click();}
     public void fillPersonalInformation(){
         firstNameTextBox.sendKeys("Adrian");
         lastNameTextBox.sendKeys("Leonte");
@@ -107,11 +104,8 @@ public class EnrollmentPage {
         postCodeTextBox.sendKeys("500365");
     }
 
-    public void fillPaymentInformation(){
-        cardHolderNameTextBox.sendKeys("Leonte Adrian");
-        cardNumberTextBox.sendKeys("4356-1234-2432-4561");
-        cvcTextBox.sendKeys("341");
-
+    public String courseOptionsFormLabelManualTesterCertificateActualText(){
+      return this.courseOptionsFormLabelManualSoftwareCertificate.getText();
     }
 }
 

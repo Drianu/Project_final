@@ -4,18 +4,11 @@ import PageObjects.EnrollmentPage;
 import PageObjects.MainPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
-import io.cucumber.java.bs.A;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 
 import org.junit.Assert;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.w3c.dom.Element;
 
 public class StepDefinitions {
 
@@ -36,7 +29,8 @@ public class StepDefinitions {
     }
 
     @When("i input for newsletter the email {string}")
-    public void i_input_the_email_newsletter(String string){mainPage.inputEmailField(string);
+    public void i_input_the_email_newsletter(String string){
+        mainPage.inputEmailField(string);
     }
 
     @Then("a pop-up appears with succesful subscribed for the newsletter")
@@ -55,16 +49,16 @@ public class StepDefinitions {
     }
 
     @Then("i am taken to the 'Sign up' page")
-    public void  i_am_taken_to_the_sign_up_page(){
+    public void  i_am_taken_to_the_sign_up_page() {
         Assert.assertTrue(driver.getTitle().toLowerCase().startsWith("software testing | enrollment"));
     }
     @When("i click on 'Read More' button for 'Virtual' text box")
-    public void i_click_on_read_more_button_for_virtual_text_box(){
+    public void i_click_on_read_more_button_for_virtual_text_box() {
         Utils.scrollToElement(driver, mainPage.scrollToPrimaryTextLight());
         mainPage.clickOnVirtualReadMoreButton();
     }
     @Then("i am taken to the 'Virtual' page")
-    public void i_am_take_to_the_virtual_page(){
+    public void i_am_take_to_the_virtual_page() {
         Assert.assertTrue(driver.getTitle().toLowerCase().startsWith("virtual"));
         driver.navigate().back();
     }
@@ -73,7 +67,7 @@ public class StepDefinitions {
         mainPage.clickOnHybridReadMoreButton();
     }
     @Then("i am taken to the 'Hybrid' page")
-    public void i_am_taken_to_the_hybrid_page(){
+    public void i_am_taken_to_the_hybrid_page() {
         Assert.assertTrue(driver.getTitle().toLowerCase().startsWith("hybrid"));
         driver.navigate().back();
     }
@@ -82,37 +76,36 @@ public class StepDefinitions {
         mainPage.clickOnInPersonReadMoreButton();
     }
     @Then("i am taken to the 'In Person' page")
-    public void i_am_taken_to_the_in_person_page(){
+    public void i_am_taken_to_the_in_person_page() {
         Assert.assertTrue(driver.getTitle().toLowerCase().startsWith("in person"));
         driver.navigate().back();
     }
 
     @When("i click the 'What you`ll learn' button")
-    public void i_click_the_what_you_ll_learn_button(){
+    public void i_click_the_what_you_ll_learn_button() {
         mainPage.clickOnlearnButton();
 
     }
     @Then("i am taken to 'Learn The Fundamentals' page")
-    public void i_am_taken_to_learn_the_fundamentals_page(){
+    public void i_am_taken_to_learn_the_fundamentals_page() {
         Assert.assertTrue(driver.getPageSource().contains("Learn The Fundamentals"));
     }
 
     @And("i click the 'Read More' button")
-    public void i_click_the_read_more_button()
-    {
+    public void i_click_the_read_more_button() {
         Utils.waitForElementToLoad(1);
         mainPage.clickOnReadMoreButton();
 
     }
 
     @Then("i am taken to the 'Fundamentals' page")
-    public void i_am_taken_to_the_fundamentals_page(){
+    public void i_am_taken_to_the_fundamentals_page() {
         Assert.assertTrue(driver.getTitle().toLowerCase().startsWith("fundamentals"));
     }
 
 
     @When ("i click on the 'Questions' button")
-    public void i_click_on_the_questions_button(){
+    public void i_click_on_the_questions_button() {
         mainPage.clickOnQuestionsButton();
     }
 
@@ -120,8 +113,8 @@ public class StepDefinitions {
     public void i_am_take_to_the_frequently_asked_questions_page() {
        Assert.assertTrue(driver.getPageSource().contains("Frequently Asked Questions"));
     }
-    @And("i click on the all four questions accordion buttons")
-    public void i_click_on_the_all_four_question_accordion_buttons() {
+    @And("i click on the all five questions accordion buttons")
+    public void i_click_on_the_all_five_question_accordion_buttons() {
         Utils.waitForElementToLoad(1);
         mainPage.clickOnAccordionButton1();
         Utils.waitForElementToLoad(1);
@@ -135,7 +128,7 @@ public class StepDefinitions {
         Utils.waitForElementToLoad(1);
     }
     @When("i click on the 'Instructors' button")
-    public void i_click_on_the_instructors_button() {
+    public void i_click_on_the_instructors_button(){
         mainPage.clickOnInstructorsButton();
     }
 
@@ -146,7 +139,6 @@ public class StepDefinitions {
 
     @When("i click the 'Twitter' button for John Doe")
     public void i_click_the_twitter_button_for_John_Doe() {
-        //WebElement scrollToInstructorspage = driver.findElement(By.xpath("//*[@id=\"instructors\"]/div/h2"));
         Utils.scrollToElement(driver, mainPage.scrollToInstructorsPage());
         mainPage.clickOnJohnDoeTwitterButton();
     }
@@ -159,7 +151,7 @@ public class StepDefinitions {
     }
 
     @When("i click the 'Facebook' button for John Doe")
-    public void i_click_the_facebook_button_for_john_doe() {
+    public void i_click_the_facebook_button_for_john_doe(){
         mainPage.clickOnJohnDoeFacebookButton();
     }
 
@@ -175,18 +167,18 @@ public class StepDefinitions {
     }
 
     @Then ("i am taken to the 'Linkedin' page")
-    public void  i_am_taken_to_the_linkedin_page(){
+    public void  i_am_taken_to_the_linkedin_page() {
         Assert.assertTrue(driver.getTitle().toLowerCase().startsWith("linkedin"));
         driver.navigate().back();
     }
 
     @When("i click the 'Instagram' button for John Doe")
-    public void i_click_the_instragram_button_for_john_doe() {
+    public void i_click_the_instragram_button_for_john_doe(){
         mainPage.clickOnJohnDoeInstagramButton();
     }
 
     @Then("i am taken to the 'Instagram' page")
-    public void i_am_taken_to_the_instagram_page(){
+    public void i_am_taken_to_the_instagram_page() {
         Assert.assertTrue(driver.getTitle().toLowerCase().startsWith("instagram"));
     }
     @Given("i am on the personal information page")
@@ -195,42 +187,42 @@ public class StepDefinitions {
     }
 
     @And("i input the first name {string}")
-    public void i_input_the_first_name(String string) {
+    public void i_input_the_first_name(String string){
         enrollmentPage.inputOnFirstNameTextBox(string);
     }
 
     @And("i input the last name {string}")
-    public void i_input_the_last_name (String string) {
+    public void i_input_the_last_name (String string){
         enrollmentPage.inputOnLastNameTextBox(string);
     }
 
     @And("i input the username {string}")
-    public void i_input_the_username (String string) {
+    public void i_input_the_username (String string){
         enrollmentPage.inputOnUsernameTextBox(string);
     }
 
     @And("i input the password {string}")
-    public void i_input_the_password (String string) {
+    public void i_input_the_password (String string){
         enrollmentPage.inputOnPasswordTextBox(string);
     }
 
     @And("i input the confirm password {string}")
-    public void i_input_the_confirm_password (String string) {
+    public void i_input_the_confirm_password (String string){
         enrollmentPage.inputOnConfirmPasswordTextBox(string);
     }
 
     @When("i click the next button on personal information page")
-    public void i_click_the_next_button_personal_information_page(){
+    public void i_click_the_next_button_personal_information_page() {
         enrollmentPage.clickOnPersonalInformationPageNextButton();
     }
 
     @Then("i am taken to the 'Contact information' page")
-    public void i_am_taken_to_the_contact_information_page(){
+    public void i_am_taken_to_the_contact_information_page() {
         Assert.assertTrue(driver.getPageSource().contains("Contact information"));
     }
 
     @Given("i am on the 'Contact information' page")
-    public void i_am_on_the_contact_information_page(){
+    public void i_am_on_the_contact_information_page() {
         driver.get("file:///C:/Users/40730/Desktop/Testing-Env-master/routes/enrollment.html");
         enrollmentPage.fillPersonalInformation();
         enrollmentPage.clickOnPersonalInformationPageNextButton();
@@ -247,8 +239,8 @@ public class StepDefinitions {
     }
 
     @And("i input the country {string}")
-    public void i_input_the_country(String string){
-        enrollmentPage.inputkOnCountryTextBox(string);
+    public void i_input_the_country(String string) {
+        enrollmentPage.inputOnCountryTextBox(string);
     }
 
     @And("i input the city {string}")
@@ -262,27 +254,24 @@ public class StepDefinitions {
     }
 
     @When("i click the next button on contact information page")
-    public void i_click_the_next_button_contact_information_page(){
+    public void i_click_the_next_button_contact_information_page() {
         enrollmentPage.clickOnContactInformationPageNextButton();
     }
 
     @Then("i am taken to the 'Course options' page")
-    public void i_am_taken_to_the_course_options_page(){
+    public void i_am_taken_to_the_course_options_page() {
         Assert.assertTrue(driver.getPageSource().contains("Course options"));
     }
     @Given("i am on the 'Course options' page")
-    public void i_am_on_the_course_options_page(){
+    public void i_am_on_the_course_options_page() {
         driver.get("file:///C:/Users/40730/Desktop/Testing-Env-master/routes/enrollment.html");
         enrollmentPage.fillPersonalInformation();
         enrollmentPage.clickOnPersonalInformationPageNextButton();
         enrollmentPage.fillContactInformation();
         enrollmentPage.clickOnContactInformationPageNextButton();
     }
-    @And("i click on all four course options")
-    public void i_click_on_all_four_course_options(){
-        enrollmentPage.clickOnCourseOptionsManuelTesterButton();
-        enrollmentPage.clickOnCoursepOptionsAutomationTesterButton();
-        enrollmentPage.clickOnCourseOptionsAutomationAndManualTesterButton();
+    @And("i click on Security Tester option")
+    public void i_click_on_security_tester_option(){
         enrollmentPage.clickOnCourseOptionsSecurityTesterButton();
     }
     @And("i click the next button on 'Course options' page")
@@ -290,11 +279,11 @@ public class StepDefinitions {
         enrollmentPage.clickOnCourseOptionsNextButton();
     }
     @Then("i am taken to the 'Payment information' page")
-    public void i_am_taken_to_the_payment_information_page(){
+    public void i_am_taken_to_the_payment_information_page() {
         Assert.assertTrue(driver.getPageSource().contains("Success!"));
     }
     @Given("i am on the 'Payment options' page")
-    public void i_am_on_the_payment_options_page(){
+    public void i_am_on_the_payment_options_page() {
         driver.get("file:///C:/Users/40730/Desktop/Testing-Env-master/routes/enrollment.html");
         enrollmentPage.fillPersonalInformation();
         enrollmentPage.clickOnPersonalInformationPageNextButton();
@@ -317,22 +306,100 @@ public class StepDefinitions {
     @And("i select the expiry date month 'December'")
     public void i_select_the_expiry_date_month_december(){
         enrollmentPage.clickOnSelectExpiryDateMonthDecember();
-        Utils.waitForElementToLoad(1);
-        enrollmentPage.clickOnSelectExpiryDateMonthDecember();
     }
     @And("i select the expiry year '2033'")
-    public void i_select_the_expiry_year_2033(){
+    public void i_select_the_expiry_year_2033() {
         enrollmentPage.clickOnExpiryDateYearTextBox();
         Utils.waitForElementToLoad(1);
         enrollmentPage.clickOnSelectExpiryDateYear2033();
     }
     @And("i click the next button on 'Payment information' page")
-    public void i_click_the_next_button_on_payment_information_page(){
+    public void i_click_the_next_button_on_payment_information_page() {
         enrollmentPage.clickOnPaymentInformationNextButton();
     }
-    @Then("i am taken to the {string} page")
-    public void i_am_taken_to_the_succes_page(String string){
+    @Then("i am taken to the Registration {string} page")
+    public void i_am_taken_to_the_succes_page(String string) {
         Assert.assertTrue(driver.getPageSource().contains(string));
+    }
+    @When("i click the 'Twitter' button for Jane Doe")
+    public void i_click_the_twitter_button_for_jane_doe() {
+        Utils.scrollToElement(driver, mainPage.scrollToInstructorsPage());
+        mainPage.clickOnJaneDoeTwitterButton();
+    }
+    @When("i click the 'Facebook' button for Jane Doe")
+    public void i_click_the_facebook_button_for_jane_doe(){
+        mainPage.clickOnJaneDoeFacebookButton();
+    }
+    @When("i click the 'Linkedin' button for Jane Doe")
+    public void i_click_the_linkedin_button_for_jane_doe(){
+        mainPage.clickOnJaneDoeLinkedinButton();
+    }
+    @When("i click the 'Instagram' button for Jane Doe")
+    public void i_click_the_instagram_button_for_jane_doe(){
+        mainPage.clickOnJaneDoeInstagramButton();
+    }
+    @When("i click the 'Twitter' button for Steve Smith")
+    public void i_click_the_twitter_button_for_steve_smith() {
+        Utils.scrollToElement(driver, mainPage.scrollToInstructorsPage());
+        mainPage.clickOnSteveSmithTwitterButton();
+    }
+    @When("i click the 'Facebook' button for Steve Smith")
+    public void i_click_the_facebook_button_for_steve_smith(){
+        mainPage.clickOnSteveSmithFacebookButton();
+    }
+    @When("i click the 'Linkedin' button for Steve Smith")
+    public void i_click_the_linkedin_button_for_steve_smith(){
+        mainPage.clickOnSteveSmithLinkedinButton();
+    }
+    @When("i click the 'Instagram' button for Steve Smith")
+    public void i_click_the_instagram_button_for_steve_smith(){
+        mainPage.clickOnSteveSmithInstagramButton();
+    }
+    @When("i click the 'Twitter' button for Sara Smith")
+    public void i_click_the_twitter_button_for_sara_smith() {
+        Utils.scrollToElement(driver, mainPage.scrollToInstructorsPage());
+        mainPage.clickOnSaraSmithTwitterButton();
+    }
+    @When("i click the 'Facebook' button for Sara Smith")
+    public void i_click_the_facebook_button_for_sara_smith(){
+        mainPage.clickOnSaraSmithFacebookButton();
+    }
+    @When("i click the 'Linkedin' button for Sara Smith")
+    public void i_click_the_linkedin_button_for_sara_smith(){
+        mainPage.clickOnSaraSmithLinkedintButton();
+    }
+    @When("i click the 'Instagram' button for Sara Smith")
+    public void i_click_the_instagram_button_for_sara_smith(){
+        mainPage.clickOnSaraSmithInstagramButton();
+    }
+    @When("i click 'Read More' button for Learn Selenium page")
+    public void i_click_read_more_button_for_learn_selenium_page() {
+        Utils.scrollToElement(driver, mainPage.scrollToLearnSelenium());
+        mainPage.clickOnLearnSeleniumReadMoreButton();
+    }
+    @Then("i am taken to the page 'Learn Selenium'")
+    public void i_am_taken_to_the_page_learn_selenium() {
+        Assert.assertFalse(driver.getTitle().toLowerCase().startsWith("fundamentals"));
+
+    }
+    @And("i select all four Course options")
+    public void i_select_all_four_course_options() {
+        enrollmentPage.clickOnCourseOptionsManualTesterButton();
+        enrollmentPage.clickOnCoursepOptionsAutomationTesterButton();
+        enrollmentPage.clickOnCourseOptionsAutomationAndManualTesterButton();
+        enrollmentPage.clickOnCourseOptionsSecurityTesterButton();
+    }
+    @When("i click 'prev' button on the Payment Information page")
+    public void i_click_prev_button_on_the_payment_information_page() {
+        enrollmentPage.clickOnPaymentInformationPrevButton();
+    }
+    @But("The text for Course options disappears")
+
+    public void the_text_for_course_options_disappears() {
+        String expectedText = "Software Testing - Manual tester certificate";
+        String actualText = enrollmentPage.courseOptionsFormLabelManualTesterCertificateActualText();
+        Assert.assertEquals(expectedText, actualText);
+
     }
 
     @After
